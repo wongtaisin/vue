@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Promise from 'promise'
+// import Promise from 'promise'
 
 const IS_PROD = Object.is(process.env.NODE_ENV, 'production')
 const IS_TYPE = IS_PROD ? '' : '/api'
@@ -30,6 +30,7 @@ axios.interceptors.response.use(
 // response 响应的拦截
 axios.interceptors.response.use(
   response => {
+    let config = response.config
     if (response.data.code === 1003) { // 错误断连
 
       if (!config || !config.retry) return Promise.reject(response) // 如果配置不存在或未设置重试选项，则拒绝

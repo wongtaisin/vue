@@ -1,61 +1,19 @@
 <template>
-  <section class="page-message">
-    <common-banner-img></common-banner-img>
-    <div class="content">
-      <common-inside-title :cn="`客户留言`" :en="`Feedback`"></common-inside-title>
-      <div class="title">常见问题</div>
-      <ul class="list">
-        <li :key="i" v-for="(item, i) in quantions">
-          <div class="answer">
-            <div class="answer-ti">
-              <div>问</div>
-              <div>{{item.answer}}</div>
-            </div>
-            <span>{{item.date}}</span>
-          </div>
-          <div class="question">
-            <div>答</div>
-            {{item.question}}
-          </div>
-        </li>
-      </ul>
-      <div class="title">我要咨询</div>
-      <div class="form">
-        <textarea cols="30" name="message" placeholder="在这里输入问题" rows="10"></textarea>
-        <button>提交问题</button>
-      </div>
-    </div>
-  </section>
+  <section class="page-message"></section>
 </template>
 
 <script>
 
 export default {
-  components: {
-  },
+  components: {},
   data () {
     return {
-      quantions: [
-        {
-          id: 1,
-          question: `是个问题是、？是个问题是、？是个问题是、？是个问题是、？`,
-          answer: `哈哈哈哈哈哈`,
-          date: `1970-01-01`
-        },
-        {
-          id: 2,
-          question: `是个问题是、？`,
-          answer: `测试`,
-          date: `1970-01-01`
-        }
-      ]
+
     }
   },
   created () { },
   mounted () { },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 

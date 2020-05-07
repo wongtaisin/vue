@@ -1,5 +1,4 @@
 import axios from '@/axios/index'
-import _utils from '@/components/common/utils/index'
 
 const actions = {
   commonPublic({
@@ -17,7 +16,7 @@ const actions = {
             footer: res.data.data.footer,
           })
         }
-      } else _utils.tipMessage(res.data.msg)
+      } // else _utils.tipMessage(res.data.msg)
     })
   },
 }

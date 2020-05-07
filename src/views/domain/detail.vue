@@ -1,9 +1,5 @@
 <template>
-  <section class="page-domain-detail">
-    <common-banner-img></common-banner-img>
-    <common-inside-title :cn="`金融银行法律服务中心`" :icon="false"></common-inside-title>
-    <div class="content">内容</div>
-  </section>
+  <section class="page-domain-detail"></section>
 </template>
 
 <script>

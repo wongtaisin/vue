@@ -1,25 +1,5 @@
 <template>
-  <section class="page-domain">
-    <common-banner-img></common-banner-img>
-    <div class="content">
-      <common-inside-title :cn="`专业领域`" :en="`Professional field`"></common-inside-title>
-      <ul class="list">
-        <li :key="i" @click="changeMenu(item, i)" v-for="(item, i) in list">
-          <div class="icon">
-            <!-- <i class="iconfont icon-sousuo"></i> -->
-            <img :src="item.img" alt>
-          </div>
-          <div class="text">
-            <div class="dis">
-              <p>{{item.text}}</p>
-              <span>{{item.en}}</span>
-            </div>
-            <div class="line"></div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <section class="page-domain"></section>
 </template>
 
 <script>
@@ -29,40 +9,6 @@ export default {
   },
   data () {
     return {
-      list: [
-        {
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554529135898&di=933fd82861291dbe9451d7ac7fa84fca&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F6ffa5773gw1e9xggeq31tj21kw11xgqq.jpg',
-          name: '陈一❤新',
-          text: '普惠金融法律服务中心',
-          en: 'enenennenememeem',
-          id: 168
-        },
-        {
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554529135898&di=933fd82861291dbe9451d7ac7fa84fca&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F6ffa5773gw1e9xggeq31tj21kw11xgqq.jpg',
-          name: '陈er❤新',
-          text: '普惠金融法律服务中心',
-          id: 1
-
-        },
-        {
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554529135898&di=933fd82861291dbe9451d7ac7fa84fca&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F6ffa5773gw1e9xggeq31tj21kw11xgqq.jpg',
-          name: '陈er❤新',
-          text: '普惠金融法律服务中心',
-          id: 1
-        },
-        {
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554529135898&di=933fd82861291dbe9451d7ac7fa84fca&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F6ffa5773gw1e9xggeq31tj21kw11xgqq.jpg',
-          name: '陈er❤新',
-          text: '普惠金融法律服务中心',
-          id: 1
-        },
-        {
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554529135898&di=933fd82861291dbe9451d7ac7fa84fca&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F6ffa5773gw1e9xggeq31tj21kw11xgqq.jpg',
-          name: '陈er❤新',
-          text: '普惠金融法律服务中心',
-          id: 1
-        },
-      ]
     }
   },
   created () { },

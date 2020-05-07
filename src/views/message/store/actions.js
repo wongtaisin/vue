@@ -1,5 +1,4 @@
 import axios from '@/axios'
-import _utils from '@/components/common/utils'
 
 const actions = {
   getWater({
@@ -25,7 +24,7 @@ const actions = {
           totalPages: res.data.data.totalPages
         })
         params.callBack()
-      } else _utils.tipMessage(res.data.msg)
+      } // else _utils.tipMessage(res.data.msg)
     })
   }
 }

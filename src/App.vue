@@ -67,9 +67,10 @@ export default {
 
 <style lang="scss">
 #app {
-  font-size: 14px;
-  color: #333;
+  width: 375px;
   height: 100%;
+  font-size: 28px;
+  color: #333;
   .app-view {
     background: #f7f7f7;
     position: absolute;
