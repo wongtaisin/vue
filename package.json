@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
@@ -12,7 +12,7 @@
     "axios": "^0.18.0",
     "better-scroll": "^1.15.1",
     "element-ui": "^2.7.2",
-    "lib-flexible": "^0.3.2",
+    "postcss-px-to-viewport": "^1.1.1",
     "promise": "^8.0.3",
     "vue": "^2.6.10",
     "vue-awesome-swiper": "^3.1.3",

@@ -5,11 +5,11 @@ import routes from './routes'
 Vue.use(Router)
 
 const router = new Router({
-    routes
+  routes
 })
 
 router.beforeEach((to, from, next) => {
-    next()
+  next()
 })
 
 export default router
