@@ -1,6 +1,6 @@
 import app from '@/App.vue'
 import home from '@/views/home/router'
-import domain from '@/views/domain/router'
+import user from '@/views/user/router'
 
 const routes = [{
   path: '/',
@@ -8,7 +8,7 @@ const routes = [{
   component: app,
   children: [
     ...home,
-    ...domain,
+    ...user,
   ],
 },
 {

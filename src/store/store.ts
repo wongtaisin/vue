@@ -1,12 +1,12 @@
 import common from './modules/common/index'
 import homeIndex from '@/views/home/store/index/index'
 import homeBasicSetting from '@/views/home/store/basicSetting/index'
-import domain from '@/views/domain/store/index'
+import user from '@/views/user/store/index'
 
 const modules = {
   common,
   homeBasicSetting,
   homeIndex,
-  domain
+  user
 }
 export default modules

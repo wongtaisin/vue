@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "noImplicitAny": false, // 接受参数而不声明其类型
+    "noImplicitAny": false,
     "types": [
       "webpack-env"
     ],
@@ -32,7 +32,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/axios/index.js"
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
