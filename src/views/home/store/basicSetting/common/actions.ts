@@ -38,7 +38,6 @@ const actions = {
       if (res.data.code === 1001) params.callBack()
       // else _utils.tipMessage(res.data.msg)
     })
-  },
-
+  }
 }
 export default actions
