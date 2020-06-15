@@ -1,0 +1,18 @@
+.date-pick {
+  margin-top: 24px;
+  box-sizing: border-box;
+  width: 296px !important;
+  background:#131d2d;
+  border:1px solid #3a4c68;
+  border-radius:2px;
+  color:#a3b4cc;
+
+  /deep/ .el-range-input {
+    background:#131d2d;
+    color:#a3b4cc;
+  }
+
+  /deep/ .el-range-separator {
+    color:#a3b4cc;
+  }
+}

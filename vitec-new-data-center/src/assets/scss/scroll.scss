@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+  display: none;
+}
+.problem-table .el-table__body-wrapper {
+  height: 280px;
+  overflow-y: scroll;
+}
+.small-table .el-table__body-wrapper {
+  height: 144px;
+  overflow-y: scroll;
+}
+
+// 去除滚动条，不可删

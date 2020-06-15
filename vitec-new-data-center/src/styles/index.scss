@@ -1,0 +1,141 @@
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: PingFang SC, Microsoft YaHei, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  margin: 0;
+}
+
+input,
+select,
+textarea {
+  outline: 0;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 2em;
+  font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  outline: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+img {
+  display: block;
+}
+
+@each $num in 5, 10, 15, 50, 70 {
+  .mt-#{$num} {
+    margin-top: $num * 1px;
+  }
+  .mb-#{$num} {
+    margin-bottom: $num * 1px;
+  }
+}
+
+// .box{
+//   background: #fff;
+//   padding: 10px 15px;
+//   margin-bottom: 10px;
+//   .box-title{
+//     font-size:16px;
+//     color:#333333;
+//     margin-bottom: 16px;
+//   }
+// }
+
+// .fixed-bottom{
+//   @include fixedBottom();
+
+//   .buttons{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
+
+//     .button{
+//         line-height: 50px;
+//         text-align: center;
+//         color: #3581fb;
+//         flex: 1;
+//         border-right: 1px solid #e9e9e9;
+
+//         &:last-child{
+//           border-right: 0;
+//         }
+
+//         &-cancel{
+//             color: red;
+
+//         }
+//     }
+// }
+// }
+// .divider{
+//   background:#d8d8d8;
+//   width:100%;
+//   height:1px;
+// }
+
+.scroll-box {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .scroll-content {
+    height: 100%;
+    overflow-y: hidden;
+  }
+}
+
+#app {
+  user-select: none;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  // height: 100vh;
+  /* color: #2c3e50; */
+  /* margin-top: 60px; */
+}

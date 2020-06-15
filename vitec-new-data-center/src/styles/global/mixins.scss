@@ -1,0 +1,33 @@
+@mixin absoluteBox ($bgImage, $height: 16px, $width: 16px, ) {
+    display: block;
+    content: '';
+    position: absolute;
+    height: $height;
+    width: $width;
+    background: url($bgImage) center center no-repeat;
+    background-size: cover;
+}
+
+@mixin fixedBottom ($height: 50px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    height: $height;
+    background: #fff;
+    box-shadow:0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+@mixin position($top: 0, $right: 0, $bottom: $top, $left: $right) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin blockedButton($lineHeight: 32px) {
+    line-height: $lineHeight;
+    text-align: center;
+    display: block;
+}
