@@ -5,7 +5,7 @@ const actions = {
     commit,
     state
   }, params) {
-    let paramsNumber = params.paramsDate ? params.paramsDate : params.paramsInit
+    const paramsNumber = params.paramsDate ? params.paramsDate : params.paramsInit
     axios({
       method: 'get',
       url: '/news/stock/get/pros',

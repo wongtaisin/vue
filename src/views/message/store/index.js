@@ -7,6 +7,6 @@ const message = {
   state,
   mutations,
   actions,
-  getters,
+  getters
 }
 export default message

@@ -42,7 +42,7 @@ export default {
       const _params = {
         paramsDate: data,
         callBack: () => {
-
+          console.log('getDetail')
         }
       }
       this.$store.dispatch('shop/getDetail', _params)

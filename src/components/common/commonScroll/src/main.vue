@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import BScroll from 'better-scroll'
 const getRect = (el) => {
   if (el instanceof window.SVGElement) {
@@ -65,17 +66,23 @@ export default {
       }
     }
   },
-  data () {
+  setup () {
+    const pullingDownTips = ref(false)
+    const time = ref(new Date().getTime())
+    const loadingFlag = ref(false)
+    const scrollFlag = ref(false)
+    const pullDownStyle = ref('')
+    const pullDownInitTop = ref(-120)
     return {
-      pullingDownTips: false,
-      time: new Date().getTime(),
-      loadingFlag: false,
-      scrollFlag: false,
-      pullDownStyle: '',
-      pullDownInitTop: -120
+      pullingDownTips,
+      time,
+      loadingFlag,
+      scrollFlag,
+      pullDownStyle,
+      pullDownInitTop
     }
   },
-  destroyed () {
+  unmounted () {
     this.scroll && this.scroll.destroy()
   },
   mounted () {
@@ -108,20 +115,20 @@ export default {
           this.scroll.refresh()
         })
         this.scroll.on('pullingUp', () => {
-          this.$emit('pullingUp')
+          // this.$emit('pullingUp')
         })
         this.scroll.on('pullingDown', () => {
           this.loadingFlag = true
-          this.$emit('pullingDown')
+          // this.$emit('pullingDown')
         })
 
         this.scroll.on('scroll', (pos) => {
           if (!this.options.pullingDown) return false
           if (!this.scrollFlag) return false
-          if (this.options.top == 0) {
-            if (pos.y < 20) this.pullDownStyle = `top:${(Math.min((pos.y / 75 * 10) * 0.8 + (this.pullDownInitTop) / 75 * 10))}vw`
+          if (this.options.top === 0) {
+            if (pos.y < 20) this.pullDownStyle = `top:${(Math.min((pos.y / 37.5 * 10) * 0.8 + (this.pullDownInitTop) / 37.5 * 10))}vw`
           } else {
-            if (pos.y < 70) this.pullDownStyle = `top:${(Math.min((pos.y / 75 * 10) * 0.8 + (this.pullDownInitTop) / 75 * 10))}vw`
+            if (pos.y < 70) this.pullDownStyle = `top:${(Math.min((pos.y / 37.5 * 10) * 0.8 + (this.pullDownInitTop) / 37.5 * 10))}vw`
           }
         })
         this.scroll.on('scrollEnd', () => {

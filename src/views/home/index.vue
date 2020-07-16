@@ -1,14 +1,12 @@
 <template>
   <div class="page-index">
-    <common-scroll :options="options" ref="commonScroll">
-      <div slot="content">
-        <div class="content">
-          <transition name="slide-fade">
-            <router-view></router-view>
-          </transition>
-        </div>
-      </div>
-    </common-scroll>
+    首页
+    <router-view></router-view>
+    <!-- <common-scroll :options="options" ref="commonScroll">
+      <template v-slot:content>
+        <div class="content"></div>
+      </template>
+    </common-scroll>-->
   </div>
 </template>
 
@@ -16,20 +14,17 @@
 export default {
   name: 'index',
   metaInfo: {
-    title: 'Home'
+    title: '首页'
   },
   data () {
     return {
       options: {
         top: 12,
         bottom: 17
-      },
+      }
     }
   },
   methods: {
-    loadData () {
-      console.log('a')
-    },
   }
 }
 </script>

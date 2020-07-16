@@ -1,47 +1,28 @@
-const _import = index => import( /* webpackChunkName: "home" */ `@/views/home/${index}`)
+const _import = index => import(/* webpackChunkName: "home" */ `@/views/home/${index}`)
 
-export default [{
-  path: '/login',
-  component() {
-    return _import('login')
-  },
-  name: 'page-login',
-  meta: {
-    grade: 1,
-    type: 'page-login',
-    title: '注册'
-  }
-}, {
-  path: '/404',
-  component() {
-    return _import('404')
-  },
-  name: '404',
-  meta: {
-    grade: 9,
-    type: 'page-404',
-    title: '404'
-  }
-},
-{
-  path: '/',
-  component() {
-    return _import('index')
-  },
-  name: 'index',
-  redirect: '/index',
-  children: [{
+export default [
+  {
     path: '/index',
     component() {
-      return _import('child/home')
+      return _import('index')
     },
-    name: 'page-index',
+    name: 'index',
     meta: {
       grade: 1,
       type: 'page-index',
-      title: 'home',
-      mkToken: true
+      title: 'index'
     }
-  }]
-}
+  },
+  {
+    path: '/404',
+    component() {
+      return _import('404.vue')
+    },
+    name: '404',
+    meta: {
+      grade: 9,
+      type: 'page-404',
+      title: '404'
+    }
+  }
 ]

@@ -1,20 +1,21 @@
-import app from '@/App.vue'
-import home from '@/views/home/router'
-import user from '@/views/user/router'
+import app from '../App.vue'
+import home from '../views/home/router/index'
 
-const routes = [{
-  path: '/',
-  name: 'app',
-  component: app,
-  children: [
-    ...home,
-    ...user,
-  ],
-},
-{
-  path: '*',
-  redirect: '/404'
-}
+const routes: any = [
+  // {
+  //   path: '/',
+  //   name: 'app',
+  //   component: app,
+  //   redirect: '/index',
+  //   children: [
+  //     ...home
+  //   ]
+  // }
+  ...home
+  // {
+  //   path: '*',
+  //   redirect: '/404'
+  // }
 ]
 
 export default routes

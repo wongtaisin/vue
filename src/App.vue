@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
+  <div id="mdg">
     <transition :name="moveName">
       <keep-alive>
         <router-view
           :data-page-id="$route.fullPath"
-          @touchend.native="touchEnd"
-          @touchstart.native="touchStart"
+          @touchend="touchEnd"
+          @touchstart="touchStart"
           class="app-view"
         ></router-view>
       </keep-alive>
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+#content {
   width: 100%;
   height: 100%;
   font-size: 14px;

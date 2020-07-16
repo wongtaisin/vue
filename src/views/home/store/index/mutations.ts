@@ -3,4 +3,5 @@ const mutations = {
     state.getShop = data
   }
 }
+
 export default mutations

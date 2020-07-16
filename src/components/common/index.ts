@@ -9,9 +9,10 @@ const components = [
 const install = function (Vue) {
   Vue.prototype.$utils = utils
   components.map(component => {
+    console.log(component)
     Vue.component(component.name, component)
   })
-  for (let item in directives) {
+  for (const item in directives) {
     Vue.directive(item, directives[item])
   }
 }

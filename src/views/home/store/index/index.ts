@@ -7,6 +7,6 @@ const homeIndex = {
   state,
   mutations,
   actions,
-  getters,
+  getters
 }
 export default homeIndex
