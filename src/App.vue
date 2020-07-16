@@ -1,5 +1,5 @@
 <template>
-  <div id="mdg">
+  <div id="vue">
     <transition :name="moveName">
       <keep-alive>
         <router-view
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-#content {
+#vue {
   width: 100%;
   height: 100%;
   font-size: 14px;
