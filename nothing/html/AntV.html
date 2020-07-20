@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="chart-name" content="柱状图平移">
+  <title>F2 图表组件库 - AntV</title>
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/YmDAMEQVbLJpVbKiRQVX.css" />
+
+</head>
+
+<body>
+  <script>
+    /*Fixing iframe window.innerHeight 0 issue in Safari*/
+    document.body.clientHeight;
+  </script>
+  <script src="https://unpkg.com/@antv/f2@3.4.2/dist/f2-all.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+  <!-- 在 PC 上模拟 touch 事件 -->
+  <script src="https://gw.alipayobjects.com/os/rmsportal/NjNldKHIVQRozfbAOJUW.js"></script>
+  <div class="chart-wrapper">
+    <canvas id="mountNode"></canvas>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script>
+    function formatNumber(n) {
+      return String(Math.floor(n * 100) / 100).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function getBeforeDate(n) {
+      let date = new Date()
+      let year, month, day
+      date.setDate(date.getDate() - n)
+      year = date.getFullYear()
+      month = date.getMonth() + 1
+      day = date.getDate()
+      return year + '-' + (month < 10 ? ('0' + month) : month) + '-' + (day < 10 ? ('0' + day) : day)
+    }
+
+    let data = [{
+        date: "2020-01-01",
+        steps: 259,
+        first: true
+      },
+      {
+        date: "2020-01-02",
+        steps: 142
+      },
+      {
+        date: "2020-01-03",
+        steps: 733
+      },
+      {
+        date: "2020-01-04",
+        steps: 113
+      },
+      {
+        date: "2020-01-05",
+        steps: 119
+      },
+      {
+        date: "2020-01-06",
+        steps: 104
+      },
+      {
+        date: "2020-01-07",
+        steps: 108
+      },
+      {
+        date: "2020-01-08",
+        steps: 109
+      },
+      {
+        date: "2020-01-09",
+        steps: 284
+      },
+      {
+        date: "2020-01-10",
+        steps: 266
+      },
+      {
+        date: "2020-01-11",
+        steps: 311
+      },
+      {
+        date: "2020-01-12",
+        steps: 411
+      },
+      {
+        date: "2020-01-13",
+        steps: 377
+      },
+      {
+        date: "2020-01-14",
+        steps: 329
+      },
+      {
+        date: "2020-01-15",
+        steps: 563
+      },
+      {
+        date: "2020-01-16",
+        steps: 203
+      },
+      {
+        date: "2020-01-17",
+        steps: 288
+      },
+      {
+        date: "2020-01-18",
+        steps: 624
+      },
+      {
+        date: "2020-01-19",
+        steps: 157
+      },
+      {
+        date: "2020-01-21",
+        steps: 42
+      },
+      {
+        date: "2020-01-22",
+        steps: 187
+      },
+      {
+        date: "2020-01-23",
+        steps: 25
+      },
+      {
+        date: "2020-01-24",
+        steps: 21
+      },
+      {
+        date: "2020-01-25",
+        steps: 25
+      },
+      {
+        date: "2020-01-26",
+        steps: 13
+      },
+      {
+        date: "2020-01-27",
+        steps: 150
+      },
+      {
+        date: "2020-01-28",
+        steps: 71
+      },
+      {
+        date: "2020-01-29",
+        steps: 106
+      },
+      {
+        date: "2020-01-30",
+        steps: 9
+      },
+      {
+        date: "2020-01-31",
+        steps: 25
+      },
+      {
+        date: "2020-02-01",
+        steps: 26,
+        first: true
+      },
+      {
+        date: "2020-02-02",
+        steps: 68
+      },
+      {
+        date: "2020-02-03",
+        steps: 32
+      },
+      {
+        date: "2020-02-04",
+        steps: 25
+      },
+      {
+        date: "2020-02-05",
+        steps: 95
+      },
+      {
+        date: "2020-02-06",
+        steps: 26
+      },
+      {
+        date: "2020-02-07",
+        steps: 31
+      },
+      {
+        date: "2020-02-08",
+        steps: 13
+      },
+      {
+        date: "2020-02-09",
+        steps: 157
+      },
+      {
+        date: "2020-02-10",
+        steps: 110
+      },
+      {
+        date: "2020-02-11",
+        steps: 106
+      },
+      {
+        date: "2020-02-12",
+        steps: 95
+      },
+      {
+        date: "2020-02-13",
+        steps: 92
+      },
+      {
+        date: "2020-02-14",
+        steps: 86
+      },
+      {
+        date: "2020-02-15",
+        steps: 89
+      },
+      {
+        date: "2020-02-16",
+        steps: 15
+      },
+      {
+        date: "2020-02-17",
+        steps: 16
+      },
+      {
+        date: "2020-02-18",
+        steps: 84
+      },
+      {
+        date: "2020-02-19",
+        steps: 12
+      },
+      {
+        date: "2020-02-20",
+        steps: 164
+      },
+      {
+        date: "2020-02-21",
+        steps: 38
+      },
+      {
+        date: "2020-02-22",
+        steps: 11
+      },
+      {
+        date: "2020-02-23",
+        steps: 36
+      },
+      {
+        date: "2020-02-24",
+        steps: 32
+      },
+      {
+        date: "2020-02-25",
+        steps: 16
+      },
+      {
+        date: "2020-02-26",
+        steps: 145
+      },
+      {
+        date: "2020-02-27",
+        steps: 25
+      },
+      {
+        date: "2020-02-28",
+        steps: 184
+      },
+      {
+        date: "2020-03-01",
+        steps: 222,
+        first: true
+      },
+      {
+        date: "2020-03-02",
+        steps: 53
+      },
+      {
+        date: "2020-03-03",
+        steps: 13
+      },
+      {
+        date: "2020-03-04",
+        steps: 140
+      },
+      {
+        date: "2020-03-05",
+        steps: 243
+      },
+      {
+        date: "2020-03-06",
+        steps: 2591
+      },
+      {
+        date: "2020-03-07",
+        steps: 2329
+      },
+      {
+        date: "2020-03-08",
+        steps: 1474
+      },
+      {
+        date: "2020-03-09",
+        steps: 9547
+      },
+      {
+        date: "2020-03-10",
+        steps: 1235
+      },
+      {
+        date: "2020-03-11",
+        steps: 2676
+      },
+      {
+        date: "2020-03-12",
+        steps: 1805
+      },
+      {
+        date: "2020-03-13",
+        steps: 2465
+      },
+      {
+        date: "2020-03-14",
+        steps: 1460
+      },
+      {
+        date: "2020-03-15",
+        steps: 1116
+      },
+      {
+        date: "2020-03-16",
+        steps: 233
+      },
+      {
+        date: "2020-03-17",
+        steps: 174
+      },
+      {
+        date: "2020-03-18",
+        steps: 47
+      },
+      {
+        date: "2020-03-19",
+        steps: 224
+      },
+      {
+        date: "2020-03-20",
+        steps: 64
+      },
+      {
+        date: "2020-03-21",
+        steps: 47
+      },
+      {
+        date: "2020-03-22",
+        steps: 66
+      },
+      {
+        date: "2020-03-23",
+        steps: 12
+      },
+      {
+        date: "2020-03-24",
+        steps: 120
+      },
+      {
+        date: "2020-03-25",
+        steps: 760
+      },
+      {
+        date: "2020-03-26",
+        steps: 223
+      },
+      {
+        date: "2020-03-27",
+        steps: 28
+      },
+      {
+        date: "2020-03-28",
+        steps: 278
+      },
+      {
+        date: "2020-03-29",
+        steps: 988
+      },
+      {
+        date: "2020-03-30",
+        steps: 3512
+      },
+      {
+        date: "2020-03-31",
+        steps: 69
+      },
+      {
+        date: "2020-04-01",
+        steps: 97,
+        first: true
+      },
+      {
+        date: "2020-04-02",
+        steps: 63
+      },
+      {
+        date: "2020-04-03",
+        steps: 11
+      },
+      {
+        date: "2020-04-04",
+        steps: 94
+      },
+      {
+        date: "2020-04-05",
+        steps: 256
+      },
+      {
+        date: "2020-04-06",
+        steps: 70
+      },
+      {
+        date: "2020-04-07",
+        steps: 115
+      },
+      {
+        date: "2020-04-08",
+        steps: 79
+      },
+      {
+        date: "2020-04-09",
+        steps: 120
+      },
+      {
+        date: "2020-04-10",
+        steps: 93
+      },
+      {
+        date: "2020-04-11",
+        steps: 104
+      },
+      {
+        date: "2020-04-12",
+        steps: 762
+      },
+      {
+        date: "2020-04-13",
+        steps: 50
+      },
+      {
+        date: "2020-04-14",
+        steps: 53
+      },
+      {
+        date: "2020-04-15",
+        steps: 1680
+      },
+      {
+        date: "2020-04-16",
+        steps: 612
+      },
+      {
+        date: "2020-04-17",
+        steps: 161
+      },
+      {
+        date: "2020-04-18",
+        steps: 670
+      },
+      {
+        date: "2020-04-19",
+        steps: 655
+      },
+      {
+        date: "2020-04-20",
+        steps: 152
+      },
+      {
+        date: "2020-04-21",
+        steps: 59
+      }
+    ]
+    let date = getBeforeDate(4)
+    let originDates = [];
+    let originSteps = [];
+    let firstDayArr = [];
+    data.forEach(function (obj) {
+      if (obj.date >= date) {
+        originDates.push(obj.date);
+        originSteps.push(obj.steps);
+      }
+
+      if (obj.first) {
+        firstDayArr.push(obj);
+      }
+    });
+
+    let chart = new F2.Chart({
+      id: 'mountNode',
+      pixelRatio: window.devicePixelRatio
+    });
+
+    chart.source(data, {
+      date: {
+        type: 'timeCat',
+        tickCount: 5,
+        values: originDates,
+        mask: 'MM-DD'
+      },
+      steps: {
+        tickCount: 5
+      }
+    });
+
+    chart.axis('date', {
+      tickLine: {
+        length: 4,
+        stroke: '#cacaca'
+      },
+      label: {
+        fill: '#cacaca'
+      },
+      line: {
+        top: true
+      }
+    });
+    chart.axis('steps', {
+      position: 'right',
+      label: function label(text) {
+        return {
+          text: formatNumber(text * 1),
+          fill: '#cacaca'
+        };
+      },
+
+      grid: {
+        stroke: '#d1d1d1'
+      }
+    });
+    chart.tooltip({
+      showItemMarker: false,
+      background: {
+        radius: 2,
+        padding: [3, 5]
+      },
+      onShow: function onShow(ev) {
+        var items = ev.items;
+        items[0].name = '';
+        items[0].value = items[0].value + ' 步';
+      }
+    });
+    chart.interval().position('date*steps').style({
+      radius: [2, 2, 0, 0]
+    });
+
+    firstDayArr.forEach(function (obj) {
+      chart.guide().line({
+        top: false,
+        start: [obj.date, 'min'],
+        end: [obj.date, 'max'],
+        style: {
+          lineWidth: 1,
+          stroke: '#A4A4A4'
+        }
+      });
+      chart.guide().text({
+        position: [obj.date, 'max'],
+        content: obj.date,
+        style: {
+          textAlign: 'start',
+          fill: '#cacaca',
+          textBaseline: 'top'
+        },
+        offsetX: 5,
+        offsetY: 5
+      });
+    });
+    // 定义进度条
+    chart.scrollBar({
+      mode: 'x',
+      xStyle: {
+        backgroundColor: '#e8e8e8',
+        fillerColor: '#808080',
+        offsetY: -2
+      }
+    });
+    chart.interaction('pan');
+    chart.render();
+  </script>
+</body>
+
+</html>
